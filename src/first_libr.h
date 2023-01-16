@@ -1,4 +1,5 @@
 #include <Arduino.h>
+const bool debug = 0;
 class US
 {
 public:
