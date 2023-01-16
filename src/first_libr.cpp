@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "first_lib.h"
-
+const bool debug = 0;
 US::US(int echo, int trig){
 	this->echo_pin = echo;
 	this->trig_pin = trig;
