@@ -34,5 +34,28 @@ int US::distance(){
 		}
 		l_duration = duration;
 	}
-	return f_duration * 0.034 / 20;
+	return microsecondsToCentimeters(duration) ;
+}
+Motor::Motor(int pin1, int pin2, int pin3, int spd = 0){
+	r_pin = pin1;
+	l_pin = pin2;
+	s_pin = pin3;
+	speed = spd;
+	pinMode(r_pin,OUTPUT);
+	pinMode(l_pin,OUTPUT);
+	pinMode(s_pin,OUTPUT);
+}
+
+void Motor::Forwad_rotation(){
+	digitalWrite(r_pin,1);
+	digitalWrite(l_pin,0);
+	analogWrite(s_pin,speed);
+}
+void Motor::Backward_rotation(){
+	digitalWrite(r_pin,0);
+	digitalWrite(l_pin,1);
+	analogWrite(s_pin,speed);
+}
+void Motor::Set_speed(int spd){
+	speed = spd;
 }
