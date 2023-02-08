@@ -4,7 +4,11 @@ Motor motor_l(13,12,10,255);
 Motor motor_r(6,7,5,255);
 PID m_pid(10,0.01,100,60);
 Light_sensor light_sensor(A0, A1, A2, A3);
-Task task(motor_r, motor_l, mpu, m_pid, light_sensor);void setup() {
+US right_us(9);
+US center_us(8);
+US left_us(10);
+Task task(motor_r, motor_l, mpu, m_pid, light_sensor, left_us, center_us,right_us);
+void setup() {
   Wire.begin();
   mpu.initialize();
   mpu.dmpInitialize();
@@ -14,6 +18,6 @@ Task task(motor_r, motor_l, mpu, m_pid, light_sensor);void setup() {
 }
 void loop() {
   Get_angle(mpu);
-  task.mta(90);
+  task.rta(0);
   Serial.println(Get_angle(mpu));
 }

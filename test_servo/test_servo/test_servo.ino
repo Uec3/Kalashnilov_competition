@@ -3,6 +3,7 @@
 Servo servo;
 
 void setup() {
+  pinMode(13,OUTPUT);
   servo.attach(9);
   Serial.begin(9600);
   // put your setup code here, to run once:
